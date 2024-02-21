@@ -1,0 +1,542 @@
+{
+  "levels": {
+    "easy": {
+      "Greetings and Introductions": ["hi", "hey", "bye", "hug", "nod", "bow"],
+      "Numbers and Colors": [
+        "one",
+        "red",
+        "two",
+        "blue",
+        "pair",
+        "pink",
+        "few",
+        "ten"
+      ],
+      "Animals": ["cat", "dog", "pig", "cow", "frog", "lion", "bird", "owl"],
+      "Fruits and Vegetables": [
+        "apple",
+        "pear",
+        "corn",
+        "grape",
+        "onion",
+        "mango",
+        "kiwi",
+        "kale"
+      ],
+      "Basic Objects": [
+        "cup",
+        "pen",
+        "key",
+        "book",
+        "lamp",
+        "rug",
+        "vase",
+        "tape"
+      ],
+      "Family Members": ["mom", "dad", "son", "aunt", "family", "child", "kid"],
+      "Days of the Week / Time": [
+        "day",
+        "week",
+        "date",
+        "night",
+        "dusk",
+        "time",
+        "clock",
+        "dawn"
+      ],
+      "Months of the Year / Season": [
+        "month",
+        "year",
+        "april",
+        "may",
+        "june",
+        "july",
+        "solar",
+        "lunar"
+      ],
+      "Weather": ["sun", "fog", "rain", "wind", "cold", "hot", "mist", "hail"],
+      "Food and Drink": [
+        "egg",
+        "tea",
+        "pie",
+        "milk",
+        "fish",
+        "soup",
+        "juice",
+        "wine"
+      ],
+      "Clothing": ["hat", "cap", "sock", "shoe", "coat", "tie", "belt", "suit"],
+      "Transportation": [
+        "car",
+        "bus",
+        "van",
+        "taxi",
+        "truck",
+        "boat",
+        "ship",
+        "road"
+      ],
+      "Jobs and Professions": [
+        "chef",
+        "cop",
+        "nurse",
+        "cook",
+        "pilot",
+        "writer",
+        "actor",
+        "athlete"
+      ],
+      "Body Parts": [
+        "arm",
+        "leg",
+        "ear",
+        "eye",
+        "hair",
+        "body",
+        "hand",
+        "foot"
+      ],
+      "Places": [
+        "park",
+        "mall",
+        "zoo",
+        "gym",
+        "cafe",
+        "beach",
+        "hotel",
+        "bank"
+      ],
+      "Hobbies and Activities": [
+        "read",
+        "swim",
+        "draw",
+        "sing",
+        "paint",
+        "dance",
+        "cook",
+        "hike"
+      ],
+      "Adjectives": [
+        "big",
+        "sad",
+        "tall",
+        "busy",
+        "shy",
+        "lazy",
+        "calm",
+        "weak"
+      ],
+      "Verbs": ["run", "eat", "sit", "jump", "fly", "talk", "draw", "sing"],
+      "Prepositions": ["in", "on", "out", "up", "over", "away", "back", "near"],
+      "Pronunciation": [
+        "vowel",
+        "stress",
+        "pitch",
+        "soft",
+        "loud",
+        "tone",
+        "voice",
+        "nasal"
+      ]
+    },
+    "medium": {
+      "Greetings and Introductions": [
+        "hello",
+        "wave",
+        "smile",
+        "greet",
+        "shake",
+        "name"
+      ],
+      "Numbers and Colors": [
+        "green",
+        "black",
+        "three",
+        "white",
+        "couple",
+        "color",
+        "olive",
+        "twenty"
+      ],
+      "Animals": [
+        "bear",
+        "snake",
+        "mouse",
+        "rabbit",
+        "tiger",
+        "gorilla",
+        "monkey",
+        "zebra"
+      ],
+      "Fruits and Vegetables": [
+        "banana",
+        "tomato",
+        "peach",
+        "cherry",
+        "carrot",
+        "spinach",
+        "potato",
+        "lettuce"
+      ],
+      "Basic Objects": [
+        "chair",
+        "clock",
+        "plate",
+        "table",
+        "spoon",
+        "knife",
+        "mirror",
+        "pillow"
+      ],
+      "Family Members": [
+        "uncle",
+        "niece",
+        "cousin",
+        "sister",
+        "families",
+        "spouse",
+        "sibling",
+        "parents"
+      ],
+      "Days of the Week / Time": [
+        "daily",
+        "weekly",
+        "yearly",
+        "august",
+        "friday",
+        "monday",
+        "sunday",
+        "morning"
+      ],
+      "Months of the Year / Season": [
+        "summer",
+        "yearly",
+        "august",
+        "season",
+        "annual",
+        "winter",
+        "holiday",
+        "autumn"
+      ],
+      "Weather": [
+        "storm",
+        "cloud",
+        "sunny",
+        "windy",
+        "snowy",
+        "frost",
+        "sleet",
+        "humid"
+      ],
+      "Food and Drink": [
+        "coffee",
+        "burger",
+        "biscuit",
+        "yogurt",
+        "butter",
+        "salad",
+        "lunch",
+        "dinner"
+      ],
+      "Clothing": [
+        "skirt",
+        "glove",
+        "dress",
+        "jeans",
+        "blouse",
+        "jacket",
+        "shirt",
+        "boots"
+      ],
+      "Transportation": [
+        "yacht",
+        "ferry",
+        "train",
+        "airplane",
+        "scooter",
+        "subway",
+        "railway",
+        "bicycle"
+      ],
+      "Jobs and Professions": [
+        "lawyer",
+        "singer",
+        "artist",
+        "doctor",
+        "teacher",
+        "plumber",
+        "scientist",
+        "officer"
+      ],
+      "Body Parts": [
+        "hand",
+        "back",
+        "finger",
+        "nose",
+        "mouth",
+        "tongue",
+        "chest",
+        "liver"
+      ],
+      "Places": [
+        "museum",
+        "library",
+        "college",
+        "theater",
+        "stadium",
+        "airport",
+        "school",
+        "church"
+      ],
+      "Hobbies and Activities": [
+        "fishing",
+        "camping",
+        "hiking",
+        "playing",
+        "baking",
+        "cooking",
+        "running",
+        "cycling"
+      ],
+      "Adjectives": [
+        "noisy",
+        "sweet",
+        "brave",
+        "clever",
+        "bored",
+        "polite",
+        "strong",
+        "healthy"
+      ],
+      "Verbs": [
+        "dance",
+        "sleep",
+        "write",
+        "speak",
+        "listen",
+        "climb",
+        "drive",
+        "build"
+      ],
+      "Prepositions": [
+        "under",
+        "below",
+        "above",
+        "front",
+        "among",
+        "beside",
+        "inside",
+        "bottom"
+      ],
+      "Pronunciation": [
+        "syllable",
+        "consonant",
+        "rhythm",
+        "phonetic",
+        "palate",
+        "speech",
+        "accent",
+        "speaking"
+      ]
+    },
+    "hard": {
+      "Greetings and Introductions": [
+        "welcome",
+        "salutation",
+        "acquaintance",
+        "introduction",
+        "greeting",
+        "handshake"
+      ],
+      "Numbers and Colors": [
+        "purple",
+        "yellow",
+        "turquoise",
+        "maroon",
+        "counting",
+        "lavender",
+        "hundred"
+      ],
+      "Animals": [
+        "elephant",
+        "kangaroo",
+        "chimpanzee",
+        "giraffe",
+        "hippopotamus",
+        "crocodile",
+        "alligator",
+        "rhinoceros"
+      ],
+      "Fruits and Vegetables": [
+        "pineapple",
+        "strawberry",
+        "cauliflower",
+        "watermelon",
+        "avocado",
+        "pumpkin",
+        "broccoli",
+        "plantain"
+      ],
+      "Basic Objects": [
+        "computer",
+        "refrigerator",
+        "telescope",
+        "microwave",
+        "scissors",
+        "stapler",
+        "television",
+        "furniture"
+      ],
+      "Family Members": [
+        "grandmother",
+        "grandfather",
+        "stepmother",
+        "adopted",
+        "married",
+        "divorced",
+        "children",
+        "toddler"
+      ],
+      "Days of the Week / Time": [
+        "schedule",
+        "calendar",
+        "saturday",
+        "wednesday",
+        "thursday",
+        "weekend",
+        "fortnight",
+        "weekday"
+      ],
+      "Months of the Year / Season": [
+        "calendar",
+        "monthly",
+        "birthdate",
+        "anniversary",
+        "biannual",
+        "vacation",
+        "century",
+        "climate"
+      ],
+      "Weather": [
+        "lightning",
+        "hurricane",
+        "tornado",
+        "blizzard",
+        "heatwave",
+        "rainbow",
+        "drizzle",
+        "downpour"
+      ],
+      "Food and Drink": [
+        "spaghetti",
+        "chocolate",
+        "sandwich",
+        "cocktail",
+        "marmalade",
+        "dessert",
+        "dining",
+        "breakfast"
+      ],
+      "Clothing": [
+        "trousers",
+        "sweater",
+        "swimsuit",
+        "sandals",
+        "cardigan",
+        "bathrobe",
+        "nightgown",
+        "tracksuit"
+      ],
+      "Transportation": [
+        "helicopter",
+        "submarine",
+        "spacecraft",
+        "airplane",
+        "motorcycle",
+        "sidewalk",
+        "limousine",
+        "automobile"
+      ],
+      "Jobs and Professions": [
+        "architect",
+        "veterinarian",
+        "electrician",
+        "psychologist",
+        "firefighter",
+        "accountant",
+        "surgeon",
+        "professor"
+      ],
+      "Body Parts": [
+        "shoulder",
+        "abdomen",
+        "skeleton",
+        "pancreas",
+        "ribcage",
+        "knuckle",
+        "forehead",
+        "eyebrow"
+      ],
+      "Places": [
+        "university",
+        "skyscraper",
+        "cathedral",
+        "laboratory",
+        "restaurant",
+        "supermarket",
+        "aquarium",
+        "metropolitan"
+      ],
+      "Hobbies and Activities": [
+        "photography",
+        "skydiving",
+        "mountaineering",
+        "meditation",
+        "swimming",
+        "gardening",
+        "traveling",
+        "knitting"
+      ],
+      "Adjectives": [
+        "magnificent",
+        "mysterious",
+        "outrageous",
+        "gloomy",
+        "terrible",
+        "outgoing",
+        "confident",
+        "exciting"
+      ],
+      "Verbs": [
+        "communicate",
+        "investigate",
+        "demonstrate",
+        "collaborate",
+        "volunteer",
+        "reflect",
+        "analyze",
+        "exercise"
+      ],
+      "Prepositions": [
+        "underneath",
+        "between",
+        "towards",
+        "through",
+        "outside",
+        "behind",
+        "around",
+        "across"
+      ],
+      "Pronunciation": [
+        "articulate",
+        "enunciate",
+        "emphasize",
+        "pronounce",
+        "dialect",
+        "intonation",
+        "language",
+        "learning"
+      ]
+    }
+  }
+}

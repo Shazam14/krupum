@@ -1,0 +1,173 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-image: url("https://github.com/Shazam14/krupum/blob/1a67527437f930354266058664d28cc7054f5cca/BG-LavenderYellow.png?raw=true");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #ffffff; /* White text by default */
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* White background with some opacity */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#difficulty {
+  margin: 20px 0;
+  background-color: #d9b1de; /* Pale purple */
+  color: #000000; /* Black text */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#category {
+  margin: 20px 0;
+  background-color: #d9b1de; /* Pale purple */
+  color: #000000; /* Black text */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#category-title {
+  margin-bottom: 20px;
+  color: #34aab4; /* Teal color for category title */
+}
+
+#word-search-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(40px, 1fr)
+  ); /* This allows the grid to be responsive */
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  width: 100%; /* Adjust width as needed */
+  max-width: 100%; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center the grid container */
+}
+
+/*need to replace cell*/
+
+.cell {
+  background: #ffffff; /* White background for cells */
+  color: #000000; /* Black text color for legibility */
+  /* border: 2px solid #8d3b97;  Deep purple borders */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / var(--grid-size)); /* Responsive based on the grid size */
+  height: calc(
+    100% / var(--grid-size)
+  ); /* Height to match the width to maintain a square aspect ratio */
+  font-size: 1em; /* Adjust font size as needed for legibility */
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box; /* Include border in the width and height */
+}
+
+.cell.selected {
+  background-color: #34aab4; /* Teal background for selected cells */
+  color: #8d3b97;
+}
+
+#category-name {
+  margin-bottom: 20px;
+  font-size: 1.5em; /* Large font size for category title */
+  color: #000000; /* Black text for better readability */
+}
+
+#word-list-box {
+  position: relative;
+  background-color: #ffffff; /* White background for the box */
+  padding: 10px;
+  margin-bottom: 20px; /* Space before the grid */
+  border-radius: 10px; /* Optional: rounded corners for the box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: shadow for the box */
+}
+
+#word-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+#word-list li {
+  background-color: #ffca0f; /* Bright yellow list items */
+  padding: 5px;
+  margin-bottom: 5px; /* Space between list items */
+  border-radius: 5px; /* Optional: rounded corners for list items */
+  position: relative;
+}
+
+#word-list li img.checkmark {
+  position: absolute;
+  right: 5px; /* Position it to the right */
+  top: 50%;
+  transform: translateY(-50%); /* Center it vertically */
+}
+
+.word-found:after {
+  content: "✓"; /* Unicode checkmark */
+  /* For an image: content: url('path_to_check_mark.png'); */
+  float: right; /* Or use flexbox on the LI if you need better alignment */
+  margin-right: 10px; /* Adjust spacing as needed */
+  /* Add other styles such as color, font-size etc. as needed */
+}
+
+button {
+  background-color: #34aab4; /* Teal background for buttons */
+  color: #ffffff; /* White text on buttons */
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #8d3b97; /* Deep purple background on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+#gif-popup {
+  display: none; /* Hidden by default */
+  position: absolute; /* Positioned relative to #word-list-box */
+  top: 0; /* Align to the top of the word list box */
+  left: 100%; /* Place it to the right of the word list box */
+  width: 100px; /* Fixed width for the GIF */
+  height: 100px; /* Fixed height for the GIF */
+  overflow: hidden; /* Clips the content if it overflows */
+  /* ...other styles... */
+}
+
+#gif-popup img {
+  width: 100%; /* Force the image to fill the container */
+  height: auto; /* Maintain aspect ratio */
+}
