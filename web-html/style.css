@@ -74,18 +74,16 @@ html {
 .cell {
   background: #ffffff; /* White background for cells */
   color: #000000; /* Black text color for legibility */
-  /* border: 2px solid #8d3b97;  Deep purple borders */
+  border: 1px solid black; /* Temporarily add a border for visibility */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% / var(--grid-size)); /* Responsive based on the grid size */
-  height: calc(
-    100% / var(--grid-size)
-  ); /* Height to match the width to maintain a square aspect ratio */
-  font-size: 1em; /* Adjust font size as needed for legibility */
+  width: 50px; /* Temporarily hard-code a size for testing */
+  height: 50px; /* Temporarily hard-code a size for testing */
+  font-size: 1em;
   cursor: pointer;
   user-select: none;
-  box-sizing: border-box; /* Include border in the width and height */
+  box-sizing: border-box;
 }
 
 .cell.selected {

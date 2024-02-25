@@ -1,15 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const difficultySelect = document.getElementById("difficulty");
-  const categorySelect = document.getElementById("category");
+let gameData;
+let difficultySelect;
+let categorySelect;
 
-  // Fetch the game data and then populate the difficulty select
+document.addEventListener("DOMContentLoaded", function () {
+  difficultySelect = document.getElementById("difficulty");
+  console.log(difficultySelect); // Confirm element assignment
+  categorySelect = document.getElementById("category");
+
   fetch("gamedata.json")
     .then((response) => response.json())
     .then((data) => {
       console.log("SOME DATA", data);
-      gameData = data; // Store the fetched data in the global variable
+      gameData = data;
       populateDifficultySelect(difficultySelect, gameData.levels);
-      difficultySelect.dispatchEvent(new Event("change")); // Trigger change to load initial category
+      difficultySelect.dispatchEvent(new Event("change")); // Initialize the game setup
     })
     .catch((error) => console.error("Fetch error:", error));
 
@@ -20,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gameData.levels[difficultySelect.value]
     );
     categorySelect.dispatchEvent(new Event("change")); // Trigger change to load words
+    updateGame();
   });
 
   // Handle change events on the category select
@@ -27,8 +32,42 @@ document.addEventListener("DOMContentLoaded", function () {
     updateWordList(
       gameData.levels[difficultySelect.value][categorySelect.value]
     );
+    updateGame();
   });
+
+  // difficultySelect.addEventListener("change", function () {
+  //   populateCategorySelect(
+  //     categorySelect,
+  //     gameData.levels[difficultySelect.value]
+  //   );
+  //   categorySelect.dispatchEvent(new Event("change")); // Trigger change to load words
+  // });
+
+  // categorySelect.addEventListener("change", function () {
+  //   updateWordList(
+  //     gameData.levels[difficultySelect.value][categorySelect.value]
+  //   );
+  //   updateGame(); // Update game when category changes
+  // });
 });
+
+function updateGame() {
+  console.log("Update game being called.....");
+  const selectedDifficulty = difficultySelect.value;
+  const selectedCategory = categorySelect.value;
+  const words = gameData.levels[selectedDifficulty][selectedCategory];
+
+  const gridSize = calculateGridSize(words);
+  updateGridSize(gridSize);
+  console.log("updating gridSize");
+
+  const gridCells = generateGrid(gridSize, words);
+  console.log(gridCells, "GRID CELLLLS.......");
+  console.log("grid size checkking........");
+  const container = document.getElementById("word-search-container");
+  container.innerHTML = ""; // Clear previous grid
+  container.append(...gridCells);
+}
 
 function populateDifficultySelect(selectElement, levels) {
   Object.keys(levels).forEach((level) => {
@@ -58,22 +97,6 @@ function updateWordList(words) {
     li.textContent = word;
     wordListElement.appendChild(li);
   });
-}
-
-function updateGame() {
-  const words = gameData.levels[currentDifficulty][currentCategory];
-  const gridSize = calculateGridSize(words);
-  const gridCells = generateGrid(gridSize, words);
-  const container = document.getElementById("word-search-container");
-  container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`; // This will be overwritten by updateGridSize
-  container.innerHTML = "";
-  container.append(...gridCells);
-  loadWords(currentDifficulty);
-  updateGridSize(gridSize); // Ensure the grid is updated to the correct size
-
-  container.addEventListener("mousedown", handleMouseDown);
-  container.addEventListener("mousemove", handleMouseMove);
-  document.addEventListener("mouseup", handleMouseUp);
 }
 
 // Global variables to track the state of selection
@@ -180,24 +203,92 @@ function calculateGridSize(words) {
 }
 
 function generateGrid(size, words) {
+  console.log("generating Grid.....");
   const grid = Array.from({ length: size }, () => Array(size).fill(""));
-  words.forEach((word) => placeWordInGrid(grid, word, size));
+  console.log(grid, "Initial grid state");
+
+  words.forEach((word, index) => {
+    console.log(`Placing word ${index + 1}/${words.length}: "${word}"`);
+    const success = placeWordInGrid(grid, word, size);
+    if (!success) {
+      console.log(grid, `Grid state after failing to place "${word}"`);
+      // Consider handling the failure, e.g., by breaking out of the loop
+      // or removing the word from the list.
+    }
+  });
+
   fillEmptySpaces(grid);
+  console.log(grid, "Grid state after filling empty spaces");
   return convertGridToCells(grid, size);
 }
 
 function placeWordInGrid(grid, word, size) {
-  let placed = false;
-  while (!placed) {
+  let attempts = 0;
+  const maxAttempts = 50; // or some other reasonable number
+
+  while (attempts < maxAttempts) {
     let row = Math.floor(Math.random() * size);
     let col = Math.floor(Math.random() * (size - word.length));
-    if (checkSpaceAvailability(grid, word, row, col)) {
+
+    console.log(`Attempt to place word '${word}' at row ${row}, col ${col}`);
+
+    // Try to place horizontally
+    if (checkSpaceAvailability(grid, word, row, col, "horizontal")) {
       for (let i = 0; i < word.length; i++) {
         grid[row][col + i] = word[i];
       }
-      placed = true;
+      console.log(`Word '${word}' placed at row ${row}, col ${col}`);
+      return true;
+    }
+    // Try to place vertically
+    else if (checkSpaceAvailability(grid, word, col, row, "vertical")) {
+      for (let i = 0; i < word.length; i++) {
+        grid[col + i][row] = word[i];
+      }
+      console.log(`Word '${word}' placed at col ${row}, row ${col}`);
+      return true;
+    } else {
+      attempts++;
+      console.log(`Attempt ${attempts}: Couldn't place word '${word}'`);
     }
   }
+
+  console.error(
+    `Failed to place the word '${word}' after ${maxAttempts} attempts`
+  );
+  return false;
+}
+
+function checkSpaceAvailability(grid, word, startRow, startCol, orientation) {
+  // Check bounds for horizontal placement
+  if (orientation === "horizontal") {
+    if (startCol + word.length > grid[0].length) return false; // Word goes out of bounds
+    for (let i = 0; i < word.length; i++) {
+      if (
+        grid[startRow][startCol + i] !== "" &&
+        grid[startRow][startCol + i] !== word[i]
+      ) {
+        return false; // Cell is not empty and not equal to the word letter
+      }
+    }
+  }
+
+  // Check bounds for vertical placement
+  if (orientation === "vertical") {
+    if (startRow + word.length > grid.length) return false; // Word goes out of bounds
+    for (let i = 0; i < word.length; i++) {
+      if (
+        grid[startRow + i][startCol] !== "" &&
+        grid[startRow + i][startCol] !== word[i]
+      ) {
+        return false; // Cell is not empty and not equal to the word letter
+      }
+    }
+  }
+
+  // You can add more conditions for diagonal or backwards here.
+
+  return true; // All checks passed; space is available
 }
 
 function fillEmptySpaces(grid) {
@@ -214,6 +305,7 @@ function fillEmptySpaces(grid) {
 }
 
 function convertGridToCells(grid, size) {
+  console.log("calling convert grid......to cells.....");
   const cells = [];
   grid.forEach((row) => {
     row.forEach((letter) => {
@@ -239,7 +331,9 @@ function checkSpaceAvailability(grid, word, row, col) {
 }
 
 function updateGridSize(gridSize) {
+  console.log("calling Grid Size.....");
   const container = document.getElementById("word-search-container");
+  // Assuming --grid-size is used in the CSS to calculate cell sizes
   container.style.setProperty("--grid-size", gridSize);
 }
 
